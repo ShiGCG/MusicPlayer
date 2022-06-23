@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+    <domain-config>
+        <domain includeSubdomains="true">example.com</domain>
+        <domain-config cleartextTrafficPermitted="true">
+            <domain includeSubdomains="true">s.music.163.com</domain>
+            <domain includeSubdomains="true">m804.music.126.net</domain>
+            <domain includeSubdomains="true">m10.music.126.net</domain>
+            <domain includeSubdomains="true">music.163.com</domain>
+        </domain-config>
+    </domain-config>
+</network-security-config>
