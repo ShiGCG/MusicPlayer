@@ -408,7 +408,9 @@ public class MainActivity extends BaseActivity {
                     //获取到下载链接
                     //传入下载链接和文件名字
                     String downloadUrl = response.body().data.get(0).url;
-                    downloadBinder.start(downloadUrl, fileName);
+                    if (downloadUrl != null)
+                        downloadBinder.start(downloadUrl, fileName);
+                    else Toast.makeText(MainActivity.this, "没有获取到下载链接", Toast.LENGTH_SHORT).show();
                 } else Toast.makeText(MainActivity.this, "内容为空", Toast.LENGTH_SHORT).show();
             }
 

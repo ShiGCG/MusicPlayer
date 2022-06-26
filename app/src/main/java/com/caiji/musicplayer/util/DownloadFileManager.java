@@ -65,50 +65,41 @@ public class DownloadFileManager extends AsyncTask<String, Integer, Integer> {
             }
             API api = RetrofitManager.getRetrofit().create(API.class);
             Call<ResponseBody> responseBodyCall = api.downloadFile(downloadUrl, downloadLength);
-            responseBodyCall.enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
-                    f:
-                    if (response.code() == HttpURLConnection.HTTP_OK && response.body() != null) {
-                        //如果code==200 且响应体不为空
-                        long contextLength = response.body().contentLength();
-                        //获取下载内容的大小
-                        if (contextLength == 0) {
-                            //没有内容
-                            stateCode = DOWNLOAD_STATE_FAIL;
-                            break f;
-                        }
-                        if (contextLength == downloadLength) {
-                            //已下载的进度等于要下载的进度，返回成功
-                            stateCode = DOWNLOAD_STATE_SUCCESS;
-                            break f;
-                        }
-                        //获取输入流
-                        inputStream = response.body().byteStream();
-                        try {
-                            downloadFileListener.onStart(path);
-                            //断点续传
-                            randomAccessFile = new RandomAccessFile(file, "rw");
-                            //缓冲区长度1024byte
-                            byte[] bytes = new byte[1024];
-                            int readLength;
-                            while ((readLength = inputStream.read(bytes)) != -1) {
-                                //写入文件
-                                randomAccessFile.write(bytes, 0, readLength);
-                            }
-                            stateCode = DOWNLOAD_STATE_SUCCESS;
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            stateCode = DOWNLOAD_STATE_FAIL;
-                        }
-                    } else stateCode = DOWNLOAD_STATE_FAIL;
+            Response<ResponseBody> response = responseBodyCall.execute();
+            f:
+            if (response.code() == HttpURLConnection.HTTP_OK && response.body() != null) {
+                //如果code==200 且响应体不为空
+                long contextLength = response.body().contentLength();
+                //获取下载内容的大小
+                if (contextLength == 0) {
+                    //没有内容
+                    stateCode = DOWNLOAD_STATE_FAIL;
+                    break f;
                 }
-
-                @Override
-                public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
+                if (contextLength == downloadLength) {
+                    //已下载的进度等于要下载的进度，返回成功
+                    stateCode = DOWNLOAD_STATE_SUCCESS;
+                    break f;
+                }
+                //获取输入流
+                inputStream = response.body().byteStream();
+                try {
+                    downloadFileListener.onStart(path);
+                    //断点续传
+                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    //缓冲区长度1024byte
+                    byte[] bytes = new byte[1024];
+                    int readLength;
+                    while ((readLength = inputStream.read(bytes)) != -1) {
+                        //写入文件
+                        randomAccessFile.write(bytes, 0, readLength);
+                    }
+                    stateCode = DOWNLOAD_STATE_SUCCESS;
+                } catch (Exception e) {
+                    e.printStackTrace();
                     stateCode = DOWNLOAD_STATE_FAIL;
                 }
-            });
+            } else stateCode = DOWNLOAD_STATE_FAIL;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
