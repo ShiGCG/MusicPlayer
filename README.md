@@ -29,7 +29,7 @@
 >1. MusicData，包含歌曲的基本信息（id，专辑图片链接、歌手、歌曲名、播放链接）
 >2. MusicDetail，网络请求返回的json字符串转换的bean类，包含下载链接
 >3. MusicSearchResult，网络请求返回的json字符串转换的bean类，包含歌曲的详细信息
->MusicDetail和MusicSearchResult的定义用GsonFormat插件完成
+- MusicDetail和MusicSearchResult的定义用GsonFormat插件完成
 ### service包
 >包含一个服务类
 >DownloadFileService，用来开启后台下载任务，构建通知
