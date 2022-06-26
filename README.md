@@ -70,4 +70,4 @@ buildTypes {
 >implementation 'com.squareup.retrofit2:retrofit:2.9.0'  
 >implementation 'com.github.bumptech.glide:glide:4.13.2'
 # 如果有疑问可以通过QQ联系我
-[点击这里]("tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=431227130&website=www.oicqzone.com")或者直接加我 431227130（请注明来意）
+[点击这里](tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=431227130&website=www.oicqzone.com)或者直接加我 431227130（请注明来意）
