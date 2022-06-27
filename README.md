@@ -64,10 +64,10 @@ buildTypes {
 }
 ```
 # 项目使用到的依赖
->implementation 'androidx.recyclerview:recyclerview:1.2.1'  
->implementation 'com.google.code.gson:gson:2.9.0'  
->implementation 'com.squareup.retrofit2:converter-gson:2.9.0'  
->implementation 'com.squareup.retrofit2:retrofit:2.9.0'  
->implementation 'com.github.bumptech.glide:glide:4.13.2'
+>- implementation 'androidx.recyclerview:recyclerview:1.2.1'  
+>- implementation 'com.google.code.gson:gson:2.9.0'  
+>- implementation 'com.squareup.retrofit2:converter-gson:2.9.0'  
+>- implementation 'com.squareup.retrofit2:retrofit:2.9.0'  
+>- implementation 'com.github.bumptech.glide:glide:4.13.2'
 # 如果有疑问可以通过QQ联系我
-[点击这里](http://wpa.qq.com/msgrd?v=3&uin=431227130&site=qq&menu=yes)或者直接加我 431227130（请注明来意）
+[点击这里](http://wpa.qq.com/msgrd?v=3&uin=431227130&site=qq&menu=yes)或者直接加我QQ431227130（请注明来意）
