@@ -71,5 +71,7 @@ buildTypes {
 >- implementation 'com.github.bumptech.glide:glide:4.13.2'
 # 如果有疑问可以通过邮箱联系我
 请注明问题；我已经不再学习了android app了，也许我也无法给你有效地帮助。
+</br>
 431227130@qq.com
+</br>
 301764@whut.edu.cn
