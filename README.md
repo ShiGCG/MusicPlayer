@@ -69,5 +69,7 @@ buildTypes {
 >- implementation 'com.squareup.retrofit2:converter-gson:2.9.0'  
 >- implementation 'com.squareup.retrofit2:retrofit:2.9.0'  
 >- implementation 'com.github.bumptech.glide:glide:4.13.2'
-# 如果有疑问可以通过QQ联系我
-[点击这里](http://wpa.qq.com/msgrd?v=3&uin=431227130&site=qq&menu=yes)或者直接加我QQ431227130（请注明来意）
+# 如果有疑问可以通过邮箱联系我
+请注明问题；我已经不再学习了android app了，也许我也无法给你有效地帮助。
+431227130@qq.com
+301764@whut.edu.cn
